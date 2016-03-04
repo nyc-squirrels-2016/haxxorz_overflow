@@ -1,7 +1,8 @@
 FactoryGirl.define do
-  factory :user do
+    factory :user do
     email {Faker::Internet.email}
-    username {Faker::Hipster.word}
+    username {Faker::Hipster.word+"#{rand(53)}"}
+    about {Faker::Hipster.paragraph}
     password "password"
   end
 

@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id = "user_auth">
+  <% if logged_in? %>
+<p><%= link_to 'logout', logout_path %></p>
+<%else%>
+<%= link_to 'register', register_path %> | <%= link_to 'login', login_path %>
+<%end%>
+</div>
 
 <%= yield %>
 

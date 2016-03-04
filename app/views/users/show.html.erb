@@ -1,0 +1,14 @@
+<h3>HaxxorName: <%= @user.username %></h3>
+
+<img src="<%=@user.image_url%>">
+
+<h4> Haxxor Questions:</h4>
+ <%@user.questions.each do |question| %>
+  <%= link_to question.title, question  %>
+  <%end%>
+
+<h4> Haxxor Questions Answered: </h4>
+  <% @user.questions_answered.each do |question| %>
+    <%= link_to question.title, question %>
+  <%end%>
+

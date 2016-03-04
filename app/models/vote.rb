@@ -9,5 +9,6 @@ class Vote < ActiveRecord::Base
   def correct_value
     unless self.value == 1 || self.value == -1
       errors.add(:value, "Invalid vote")
+    end
   end
 end

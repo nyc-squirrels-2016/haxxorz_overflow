@@ -4,6 +4,25 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id]).includes(:user)
+    @question = Question.includes(:user, :answers).find(params[:id])
+  end
+
+  def new
+    @question = Question.new
+  end
+
+  def create
+    @question = Question.new(question_params)
+    @question.user = current_user
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:title, :body)
   end
 end

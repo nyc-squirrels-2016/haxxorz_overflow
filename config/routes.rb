@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :users, only: [:index, :create, :show]
   resource :sessions, only: [:create, :show]
   get 'register' => 'users#new'
   get 'logout' => 'sessions#destroy'

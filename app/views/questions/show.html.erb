@@ -1,1 +1,8 @@
 <h2><%= @question.title %></h2>
+<p>by <%= @question.user.username %></p>
+<p><%= @question.body %></p>
+
+<% @question.answers.each do |answer| %>
+  <fieldset><legend><%= answer.user.username %></legend>
+  <%= answer.body %></fieldset>
+<% end %>

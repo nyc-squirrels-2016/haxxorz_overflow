@@ -1,8 +1,12 @@
 class VotesController < ApplicationController
 
   def create
-
-    vote = Vote.new(user_id: current_user.id, value: params[:value])
+    if params[:commit] == "Upvote"
+      val = 1
+    else
+      val = -1
+    end
+    vote = Vote.new(user_id: current_user.id, value: val)
     #probably split this to vote model
     if params.include?(:comment_id)
       comment = Comment.find(params[:comment_id])

@@ -7,7 +7,9 @@ class Answer < ActiveRecord::Base
   validates :body, :user_id, :question_id, presence: true
 
   def vote_count
-    Vote.where(votable_id: self.id, votable_type: "Answer").count
+    ups = Vote.where(votable_id: self.id, votable_type: "Answer", value: 1).count
+    downs = Vote.where(votable_id: self.id, votable_type: "Answer", value: -1).count
+    return ups - downs
   end
 
 

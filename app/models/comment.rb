@@ -6,7 +6,9 @@ class Comment < ActiveRecord::Base
   validates :user_id, :commentable_id, :commentable_type, :body, presence: true
 
   def vote_count
-    Vote.where(votable_id: self.id, votable_type: "Comment").count
+    ups = Vote.where(votable_id: self.id, votable_type: "Comment", value: 1).count
+    downs = Vote.where(votable_id: self.id, votable_type: "Comment", value: -1).count
+    return ups - downs
   end
 
 

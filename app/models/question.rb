@@ -8,7 +8,9 @@ class Question < ActiveRecord::Base
 
 
   def vote_count
-    Vote.where(votable_id: self.id, votable_type: "Question").count
+    ups = Vote.where(votable_id: self.id, votable_type: "Question", value: 1).count
+    downs = Vote.where(votable_id: self.id, votable_type: "Question", value: -1).count
+    return ups - downs
   end
 
 end

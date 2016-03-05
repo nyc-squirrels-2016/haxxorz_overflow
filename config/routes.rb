@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
   resources :questions, only: [:index, :show, :new, :create] do
-    resources :answers, only: [:create] do
-      resources :comments, only: [:create] do
-        resources :votes, only: [:create]
-      end
-      resources :votes, only: [:create]
-    end
-    resources :comments, only: [:create]
     resources :votes, only: [:create]
+    resources :answers, only: [:create] do
+      resources :votes, only: [:create]
+      resources :comments, only: [:create] do
+      end
+    end
+    resources :comments, only: [:create] do
+    resources :votes, only: [:create]
+    end
+
   end
+
+
 
   resources :users, only: [:index, :create, :show]
   resource :sessions, only: [:create, :show, :test]
+
+
 
   get 'register' => 'users#new'
   get 'logout' => 'sessions#destroy'

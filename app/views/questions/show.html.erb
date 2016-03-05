@@ -10,7 +10,7 @@
   <p>Comment vote count: <%=comment.vote_count%></p>
   <%= render partial: "/comments/downvote", locals: {comment: comment}%>
   <div class="question_comments_box">
-    <%= comment.body %>
+    <p><%= comment.body %> -<%= link_to comment.user.username, comment.user %></p>
   </div>
 <% end %>
 
@@ -41,7 +41,9 @@
         <%= render partial: "/comments/upvote", locals: {comment: comment}%>
           <p>Comment vote count: <%=comment.vote_count%></p>
         <%= render partial: "/comments/downvote", locals: {comment: comment}%>
-        <li><%= comment.body %></li>
+        <li>
+          <%= comment.body %> - <%= link_to comment.user.username, comment.user %>
+        </li>
       <% end %>
     </ul>
     <% if logged_in? %>

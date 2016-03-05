@@ -5,4 +5,12 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates :title, :body, :user_id, presence: true
+
+
+  def vote_count
+    ups = Vote.where(votable_id: self.id, votable_type: "Question", value: 1).count
+    downs = Vote.where(votable_id: self.id, votable_type: "Question", value: -1).count
+    return ups - downs
+  end
+
 end

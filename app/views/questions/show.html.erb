@@ -1,8 +1,14 @@
 <h2><%= @question.title %></h2>
 <p>by <%= @question.user.username %></p>
+<%= render partial: "upvote"%>
+<p>Question vote count: <%=@question.vote_count%></p>
+<%= render partial: "downvote"%>
 <p><%= @question.body %></p>
 <h4>Comments</h4>
 <% @question.comments.each do |comment| %>
+  <%= render partial: "/comments/upvote", locals: {comment: comment}%>
+  <p>Comment vote count: <%=comment.vote_count%></p>
+  <%= render partial: "/comments/downvote", locals: {comment: comment}%>
   <div class="question_comments_box">
     <%= comment.body %>
   </div>
@@ -23,12 +29,18 @@
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
+      <%= render partial: "/answers/upvote", locals: {answer: answer}%>
+    <p>Answer vote count: <%=answer.vote_count%></p>
+      <%= render partial: "/answers/downvote", locals: {answer: answer}%>
     <%= answer.body %>
     <% if answer.comments.length > 0 %>
       <h4>Comments:</h4>
     <% end %>
     <ul>
       <% answer.comments.each do |comment| %>
+        <%= render partial: "/comments/upvote", locals: {comment: comment}%>
+          <p>Comment vote count: <%=comment.vote_count%></p>
+        <%= render partial: "/comments/downvote", locals: {comment: comment}%>
         <li><%= comment.body %></li>
       <% end %>
     </ul>

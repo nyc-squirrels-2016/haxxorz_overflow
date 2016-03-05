@@ -3,7 +3,7 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, polymorphic: true
 
   validates :user_id, :votable_id, :votable_type, presence: true
-  validates :user_id, uniqueness: {scope: :votable_id}
+  validates_uniqueness_of :user_id, scope: [:votable_id, :votable_type]
   validate :correct_value
 
   def correct_value

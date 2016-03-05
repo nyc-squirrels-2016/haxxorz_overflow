@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      @user = User.new
+      flash[:notice]=["Couldn't log you in."]
       render :new
     end
   end

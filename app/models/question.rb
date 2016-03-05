@@ -13,4 +13,16 @@ class Question < ActiveRecord::Base
     return ups - downs
   end
 
+  def self.sort_by_trending
+    self.order(updated_at: :desc)
+  end
+
+  def self.sort_by_recent
+    self.order(created_at: :desc)
+  end
+
+  def self.sort_by_votes
+
+  end
+
 end

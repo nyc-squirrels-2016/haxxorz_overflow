@@ -5,4 +5,10 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates :body, :user_id, :question_id, presence: true
+
+  def vote_count
+    Vote.where(votable_id: self.id, votable_type: "Answer").count
+  end
+
+
 end

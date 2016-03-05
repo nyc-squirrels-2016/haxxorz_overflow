@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   resources :questions, only: [:index, :show, :new, :create] do
     resources :answers, only: [:create] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create] do
+        resources :votes, only: [:create]
+      end
+      resources :votes, only: [:create]
     end
     resources :comments, only: [:create]
+    resources :votes, only: [:create]
   end
 
   resources :users, only: [:index, :create, :show]

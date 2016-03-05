@@ -1,19 +1,40 @@
 <h2><%= @question.title %></h2>
 <p>by <%= @question.user.username %></p>
 <p><%= @question.body %></p>
+<h4>Comments</h4>
+<% @question.comments.each do |comment| %>
+  <div class="question_comments_box">
+    <%= comment.body %>
+  </div>
+<% end %>
+
+<% if logged_in? %>
+  <h4>Add a comment</h4>
+  <%= form_for [@question, Comment.new] do |f| %>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit "Comment" %>
+    </div>
+  <% end %>
+<% end %>
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
   <%= answer.body %></fieldset>
 <% end %>
 
-<h3>Answer this question</h3>
-<%= form_for [@question, Answer.new] do |f| %>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.submit "Answer" %>
-  </div>
+<% if logged_in? %>
+  <h3>Answer this question</h3>
+  <%= form_for [@question, Answer.new] do |f| %>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit "Answer" %>
+    </div>
+  <% end %>
 <% end %>

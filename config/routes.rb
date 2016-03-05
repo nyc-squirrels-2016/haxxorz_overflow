@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :questions, only: [:index, :show, :new, :create] do
     resources :answers, only: [:create]
+    resources :comments, only: [:create]
   end
 
   resources :users, only: [:index, :create, :show]

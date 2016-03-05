@@ -23,7 +23,22 @@
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
-  <%= answer.body %></fieldset>
+    <%= answer.body %>
+    <% if answer.comments.length > 0 %>
+      <h4>Comments:</h4>
+    <% end %>
+    <ul>
+      <% answer.comments.each do |comment| %>
+        <li><%= comment.body %></li>
+      <% end %>
+    </ul>
+    <% if logged_in? %>
+      <%= form_for [@question, answer, Comment.new] do |f| %>
+        <%= f.text_field :body %>
+        <%= f.submit "Comment on this answer" %>
+      <% end %>
+    <% end %>
+  </fieldset>
 <% end %>
 
 <% if logged_in? %>

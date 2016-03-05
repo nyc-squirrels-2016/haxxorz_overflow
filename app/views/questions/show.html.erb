@@ -6,7 +6,9 @@
 <p><%= @question.body %></p>
 <h4>Comments</h4>
 <% @question.comments.each do |comment| %>
+
   <p>Comment vote count: <%=comment.vote_count%></p>
+
   <div class="question_comments_box">
     <%= comment.body %>
   </div>
@@ -27,14 +29,18 @@
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
+
     <p>Answer vote count: <%=answer.vote_count%></p>
+
     <%= answer.body %>
     <% if answer.comments.length > 0 %>
       <h4>Comments:</h4>
     <% end %>
     <ul>
       <% answer.comments.each do |comment| %>
-        <p>Comment vote count: <%=comment.vote_count%>
+
+        <p>Comment vote count: <%=comment.vote_count%></p>
+
         <li><%= comment.body %></li>
       <% end %>
     </ul>

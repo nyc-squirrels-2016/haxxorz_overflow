@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   root 'questions#index'
 
-
-
+  get '/most_recent' => 'questions#most_recent'
+  get '/popular' => 'questions#popular'
+  get '/trending' => 'questions#trending'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

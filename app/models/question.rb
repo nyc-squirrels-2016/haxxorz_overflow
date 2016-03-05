@@ -8,21 +8,23 @@ class Question < ActiveRecord::Base
 
 
   def vote_count
+    # self.votes.inject(0){||}
+    # Consider refactoring - Devin has an idea
     ups = Vote.where(votable_id: self.id, votable_type: "Question", value: 1).count
     downs = Vote.where(votable_id: self.id, votable_type: "Question", value: -1).count
     return ups - downs
   end
 
   def self.sort_by_trending
-    self.order(updated_at: :desc)
+    Question.all.includes(:user).order(updated_at: :desc)
   end
 
   def self.sort_by_recent
-    self.order(created_at: :desc)
+    Question.all.includes(:user).order(created_at: :desc)
   end
 
   def self.sort_by_votes
-
+    Question.all.includes(:user).sort_by(&:vote_count).reverse
   end
 
 end

@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
     self.answers.each do |ans|
       questions_answered << Question.find(ans.question_id)
     end
-    return questions_answered
+    return questions_answered.uniq
   end
 end

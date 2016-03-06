@@ -1,19 +1,70 @@
 <h2><%= @question.title %></h2>
 <p>by <%= @question.user.username %></p>
+<%= render partial: "upvote"%>
+<p>Question vote count: <%=@question.vote_count%></p>
+<%= render partial: "downvote"%>
 <p><%= @question.body %></p>
+<h4>Comments</h4>
+<% @question.comments.each do |comment| %>
+  <%= render partial: "/comments/upvote", locals: {comment: comment}%>
+  <p>Comment vote count: <%=comment.vote_count%></p>
+  <%= render partial: "/comments/downvote", locals: {comment: comment}%>
+  <div class="question_comments_box">
+    <p><%= comment.body %> -<%= link_to comment.user.username, comment.user %></p>
+  </div>
+<% end %>
+
+<% if logged_in? %>
+  <h4>Add a comment</h4>
+  <%= form_for [@question, Comment.new] do |f| %>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit "Comment" %>
+    </div>
+  <% end %>
+<% end %>
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
-  <%= answer.body %></fieldset>
+      <%= render partial: "/answers/make_best", locals: {answer: answer} %>
+      <%= render partial: "/answers/upvote", locals: {answer: answer}%>
+    <p>Answer vote count: <%=answer.vote_count%></p>
+      <%= render partial: "/answers/downvote", locals: {answer: answer}%>
+    <%= answer.body %>
+    <% if answer.comments.length > 0 %>
+      <h4>Comments:</h4>
+    <% end %>
+    <ul>
+      <% answer.comments.each do |comment| %>
+        <%= render partial: "/comments/upvote", locals: {comment: comment}%>
+          <p>Comment vote count: <%=comment.vote_count%></p>
+        <%= render partial: "/comments/downvote", locals: {comment: comment}%>
+        <li>
+          <%= comment.body %> - <%= link_to comment.user.username, comment.user %>
+        </li>
+      <% end %>
+    </ul>
+    <% if logged_in? %>
+      <%= form_for [@question, answer, Comment.new] do |f| %>
+        <%= f.text_field :body %>
+        <%= f.submit "Comment on this answer" %>
+      <% end %>
+    <% end %>
+  </fieldset>
 <% end %>
 
-<h3>Answer this question</h3>
-<%= form_for [@question, Answer.new] do |f| %>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.submit "Answer" %>
-  </div>
+<% if logged_in? %>
+  <h3>Answer this question</h3>
+  <%= form_for [@question, Answer.new] do |f| %>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit "Answer" %>
+    </div>
+  <% end %>
 <% end %>

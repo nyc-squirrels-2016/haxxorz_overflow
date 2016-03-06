@@ -1,18 +1,33 @@
 Rails.application.routes.draw do
   resources :questions, only: [:index, :show, :new, :create] do
-    resources :answers, only: [:create]
+    resources :votes, only: [:create]
+    resources :answers, only: [:create] do
+      resources :votes, only: [:create]
+      resources :comments, only: [:create] do
+      end
+    end
+    resources :comments, only: [:create] do
+    resources :votes, only: [:create]
+    end
+
   end
+
+
 
   resources :users, only: [:index, :create, :show]
   resource :sessions, only: [:create, :show, :test]
+
+
 
   get 'register' => 'users#new'
   get 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new'
   root 'questions#index'
 
-
-
+  get '/most_recent' => 'questions#most_recent'
+  get '/popular' => 'questions#popular'
+  get '/trending' => 'questions#trending'
+  post '/makebest/:answer_id' => 'questions#make_best'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

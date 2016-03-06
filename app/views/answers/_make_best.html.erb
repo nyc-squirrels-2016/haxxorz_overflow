@@ -1,0 +1,6 @@
+<%if @my_question %>
+  <%= form_tag("/makebest/#{answer.id}", method: "post") do %>
+  <%= submit_tag "Select as best Answer" %>
+  <%end%>
+<%end%>
+

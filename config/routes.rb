@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/most_recent' => 'questions#most_recent'
   get '/popular' => 'questions#popular'
   get '/trending' => 'questions#trending'
+  post '/makebest/:answer_id' => 'questions#make_best'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

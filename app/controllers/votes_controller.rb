@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    if params[:commit] == "Upvote"
+    if params[:commit] == "^"
       val = 1
     else
       val = -1

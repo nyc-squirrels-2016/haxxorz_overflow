@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../support/authentication_helpers.rb'
+#require_relative '../support/authentication_helpers.rb'
 
 describe QuestionsController do
   context "index" do
@@ -25,12 +25,12 @@ describe QuestionsController do
   end
 
   context "create" do
-    # let(:user) {FactoryGirl.create(:user)}
-    # it "redirects with valid question" do
-    #   stub_current_user(user)
-    #   post :create, params = {question: {title:"thing", body: "whatchamawhosit"}}
-    #   expect(response.status).to eq(302)
-    # end
+    let(:user) {FactoryGirl.create(:user)}
+    it "redirects with valid question" do
+      stub_current_user(user)
+      post :create, params = {question: {title:"thing", body: "whatchamawhosit"}}
+      expect(response.status).to eq(302)
+    end
     it "re-renders the page with invalid question" do
       post :create, params = {question: {title: nil, body: "thingy"}}
       expect(response).to render_template :new

@@ -7,16 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1> <%= link_to "Haxxorz Overflow", root_path%></h1>
-  <%if logged_in?%><h4>Logged in as <%=link_to current_user.username, current_user%></h4><%end%>
-  <div id = "user_auth">
-  <% if logged_in? %>
-<p><%= link_to 'logout', logout_path %> | <%= link_to 'Ask a question', new_question_path %></p>
-<%else%>
-<%= link_to 'register', register_path %> | <%= link_to 'login', login_path %>
-<%end%>
-</div>
-
+  <header>
+    <h1> <%= link_to "Haxxorz Overflow", root_path%></h1>
+    <h4 id = "user_auth">
+      <%if logged_in?%>Logged in as <%=link_to current_user.username, current_user%> | <%end%>
+      <% if logged_in? %>
+        <%= link_to 'logout', logout_path %> | <%= link_to 'Ask a question', new_question_path %>
+      <%else%>
+        <%= link_to 'register', register_path %> | <%= link_to 'login', login_path %>
+      <%end%>
+    </h4>
+  </header>
 <% if flash[:notice] %>
     <div class="notice">
       <ul>
@@ -26,9 +27,9 @@
     </ul>
     </div>
   <% end %>
-
-<%= yield %>
-
+<div id="content_container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

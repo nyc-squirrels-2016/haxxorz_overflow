@@ -17,6 +17,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.includes(:user, :answers, :comments).find(params[:id])
+    current_user.id == @question.user_id ? @my_question = true : @my_question = false
   end
 
   def new
@@ -31,6 +32,13 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def make_best
+    answer = Answer.find(params[:answer_id])
+    question = Question.find(answer.question_id)
+    question.update(best_answer_id: answer.id)
+    redirect_to :back
   end
 
   private

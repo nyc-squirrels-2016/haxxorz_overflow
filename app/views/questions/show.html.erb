@@ -29,6 +29,7 @@
 
 <% @question.answers.each do |answer| %>
   <fieldset><legend><%= answer.user.username %></legend>
+      <%= render partial: "/answers/make_best", locals: {answer: answer} %>
       <%= render partial: "/answers/upvote", locals: {answer: answer}%>
     <p>Answer vote count: <%=answer.vote_count%></p>
       <%= render partial: "/answers/downvote", locals: {answer: answer}%>

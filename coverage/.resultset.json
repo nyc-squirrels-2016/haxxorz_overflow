@@ -156,6 +156,36 @@
         null,
         null
       ],
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/votes_controller.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/user.rb": [
         1,
         1,
@@ -246,37 +276,23 @@
         null,
         null
       ],
-      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/comments_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/vote.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        null,
+        null,
+        null
       ],
-      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/votes_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/comments_controller.rb": [
         0,
         0,
         0,
@@ -298,24 +314,8 @@
       "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/helpers/application_helper.rb": [
         0,
         0
-      ],
-      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/vote.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1457299725
+    "timestamp": 1457300727
   }
 }

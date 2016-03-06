@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/answers_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/answers_controller.rb": [
         1,
         1,
         0,
@@ -18,7 +18,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/application_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -37,7 +37,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/questions_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/questions_controller.rb": [
         1,
         1,
         1,
@@ -93,7 +93,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/sessions_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -121,7 +121,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/users_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -155,7 +155,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/models/question.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/question.rb": [
         1,
         1,
         1,
@@ -187,7 +187,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/models/user.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/user.rb": [
         1,
         1,
         1,
@@ -210,7 +210,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/models/answer.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/answer.rb": [
         1,
         1,
         1,
@@ -228,7 +228,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/models/comment.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/comment.rb": [
         1,
         1,
         1,
@@ -245,7 +245,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/comments_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/comments_controller.rb": [
         0,
         0,
         0,
@@ -264,7 +264,7 @@
         0,
         0
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/controllers/votes_controller.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/controllers/votes_controller.rb": [
         0,
         0,
         0,
@@ -294,11 +294,11 @@
         0,
         0
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/helpers/application_helper.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/helpers/application_helper.rb": [
         0,
         0
       ],
-      "/Users/apprentice/Desktop/haxxorz_overflow/app/models/vote.rb": [
+      "/Users/stevenking/Desktop/projs/haxxorz_overflow/app/models/vote.rb": [
         0,
         0,
         0,
@@ -315,6 +315,6 @@
         0
       ]
     },
-    "timestamp": 1457294394
+    "timestamp": 1457296647
   }
 }

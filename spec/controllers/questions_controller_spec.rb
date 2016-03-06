@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../support/authentication_helpers.rb'
+#require_relative '../support/authentication_helpers.rb'
 
 describe QuestionsController do
   context "index" do

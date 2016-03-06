@@ -1,6 +1,14 @@
 require 'rails_helper'
+
+
+
+
 describe AnswersController do
+  before(:each) do
+    stub_current_user
+  end
   context "#create" do
-    pending #we need to make the authentication helper work to make this test work
+    #we need to make the authentication helper work to make this test work
+
   end
 end

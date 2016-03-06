@@ -17,7 +17,13 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.includes(:user, :answers, :comments).find(params[:id])
-    current_user.id == @question.user_id ? @my_question = true : @my_question = false
+    if logged_in?
+      if current_user.id == @question.user_id
+        @my_question = true
+      else
+        @my_question = false
+      end
+    end
   end
 
   def new

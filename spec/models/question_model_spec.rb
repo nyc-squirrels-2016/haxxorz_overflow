@@ -8,7 +8,6 @@ describe Question do
       Vote.create(user_id: user.id, votable_id: question.id, votable_type: "Question", value: 1)
       Vote.create(user_id: 2, votable_id: question.id, votable_type: "Question", value: 1)
       expect(question.vote_count).to eq(2)
-
     end
   end
 end

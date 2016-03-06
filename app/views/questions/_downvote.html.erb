@@ -1,7 +1,7 @@
 
 
 
-  <%= form_for [@question, Vote.new] do |f| %>
-    <%=f.submit "Downvote" %>
+  <%= form_for [@question, Vote.new], html: {class: "downvote"} do |f| %>
+    <%=f.submit "v", class: "button" %>
   <%end%>
 

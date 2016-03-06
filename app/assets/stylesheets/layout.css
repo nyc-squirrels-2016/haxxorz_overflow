@@ -1,0 +1,51 @@
+* {
+  background-position: fixed;
+  background-color: #ffffff;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 99%;
+  background-color: #000000;
+  height: 5%;
+}
+h1 {
+  background-color: inherit;
+  max-width: 32%;
+  float: left;
+  font-size: 1em;
+  font-weight: normal;
+}
+h4 {
+  max-width: 32%;
+  background-color: inherit;
+  font-weight: normal;
+  font-size: 1em;
+  color: #ffffff;
+  margin: 0.67em 0 0 33%;
+}
+h4 a {
+  background-color: inherit;
+  color: inherit;
+}
+h1 a {
+  text-decoration: none;
+  background-color: inherit;
+  color: #ffffff;
+}
+#user_auth {
+  position: relative;
+  background-color: inherit;
+  float: right;
+  margin: 0.67em 5% 0 0;
+  max-width: 66%;
+}
+ #user_auth a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: inherit;
+ }
+#content_container {
+  margin-top: 6%;
+}

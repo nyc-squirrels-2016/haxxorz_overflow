@@ -35,7 +35,10 @@ class QuestionsController < ApplicationController
   end
 
   def make_best
-
+    answer = Answer.find(params[:answer_id])
+    question = Question.find(answer.question_id)
+    question.update(best_answer_id: answer.id)
+    redirect_to :back
   end
 
   private
